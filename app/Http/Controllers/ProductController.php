@@ -12,7 +12,7 @@ class ProductController extends Controller
     }
     public function backend(Request $request){
         $query=product::query();
-        if($s=$request->input(key:'S')){
+        if($s=$request->input('S')){
             $query->where('title','regexp',"/$s/")
                 ->orWhere('description','regexp',"/$s/");
 
