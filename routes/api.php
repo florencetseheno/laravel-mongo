@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('products/frontend',[ProductController::class,'frontend']);
 Route::get('products/backend',[ProductController::class,'backend']);
+Route::post('products/store',[ProductController::class,'store']);
+Route::delete('products/destroy/{id}',[ProductController::class,'destroy']);
+Route::put('products/update/{id}',[ProductController::class,'update']);

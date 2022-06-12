@@ -9,4 +9,11 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class product extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'image',
+        'price',
+    ];
+
 }

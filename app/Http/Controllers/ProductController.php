@@ -36,4 +36,38 @@ class ProductController extends Controller
             'last_page'=>ceil($total/$perPage)
         ];
     }
+
+    /**
+     * store new product
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request){
+        return product::create($request->all());
+    }
+
+
+
+        /**
+     * delete product
+     * @param string $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id){
+        return product::destroy($id);
+    }
+
+   /**
+     * update product
+     * @param string $id
+   * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,$id){
+        $product = product::where('_id', '=', $id)->first();
+        $product->update($request->all());
+        return $request;
+    }
+
+
 }
