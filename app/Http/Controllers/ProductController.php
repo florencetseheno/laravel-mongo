@@ -65,7 +65,14 @@ class ProductController extends Controller
      */
     public function update(Request $request,$id){
         $product = product::where('_id', '=', $id)->first();
-        $product->update($request->all());
+          
+        $product =array( 
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'image'=>$request->input('image'),
+            'price'=>$request->input('price'),
+        );
+       echo json_encode(Product::where('_id',$id)->update($product));
         return $request;
     }
 
